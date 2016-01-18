@@ -1,10 +1,15 @@
 import unittest
+
+import sys
+sys.path.append('../lib')
+
 from airport import Airport
 
 class AirportTestCase(unittest.TestCase):
+
     def test_planes_default_empty(self):
         self.airport = Airport()
-        self.assertEqual(self.airport.planes,[])
+        self.assertEqual(self.airport.planes(),[])
 
 
 if __name__ == '__main__':

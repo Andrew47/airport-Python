@@ -18,8 +18,8 @@ class AirportTestCase(unittest.TestCase):
 
     def test_capacity_can_be_overriden(self):
         self.random_capacity = 100
-        self.airport = Airport(random_capacity)
-        self.assertEqual(self.airport.capacity, random_capacity)
+        self.airport = Airport(self.random_capacity)
+        self.assertEqual(self.airport.capacity, self.random_capacity)
 
 
 if __name__ == '__main__':

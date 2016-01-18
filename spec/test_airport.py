@@ -16,6 +16,11 @@ class AirportTestCase(unittest.TestCase):
     def test_capacity_default(self):
         self.assertEqual(self.airport.capacity, self.airport._DEFAULTCAPACITY)
 
+    def test_capacity_can_be_overriden(self):
+        self.random_capacity = 100
+        self.airport = Airport(random_capacity)
+        self.assertEqual(self.airport.capacity, random_capacity)
+
 
 if __name__ == '__main__':
   # suite = unittest.TestLoader().loadTestsFromTestCase(TestStringMethods)

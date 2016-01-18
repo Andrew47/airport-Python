@@ -7,9 +7,14 @@ from airport import Airport
 
 class AirportTestCase(unittest.TestCase):
 
-    def test_planes_default_empty(self):
+    def setUp(self):
         self.airport = Airport()
+
+    def test_planes_default_empty(self):
         self.assertEqual(self.airport.planes(),[])
+
+    def test_capacity_default(self):
+        self.assertEqual(self.airport.capacity, self.airport._DEFAULTCAPACITY)
 
 
 if __name__ == '__main__':

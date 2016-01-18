@@ -11,7 +11,7 @@ class AirportTestCase(unittest.TestCase):
         self.airport = Airport()
 
     def test_planes_default_empty(self):
-        self.assertEqual(self.airport.planes(),[])
+        self.assertEqual(self.airport.planes,[])
 
     def test_capacity_default(self):
         self.assertEqual(self.airport.capacity, self.airport._DEFAULTCAPACITY)

@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import Mock
 
 import sys
 sys.path.append('../lib')
@@ -9,7 +10,7 @@ class AirportTestCase(unittest.TestCase):
 
     def setUp(self):
         self.airport = Airport()
-        self.plane = 1
+        self.plane = Mock()
 
     def test_planes_default_empty(self):
         self.assertEqual(self.airport.planes,[])
@@ -26,8 +27,9 @@ class AirportTestCase(unittest.TestCase):
         self.airport = Airport(self.random_capacity)
         self.assertEqual(self.airport.capacity, self.random_capacity)
 
-    def test_is_full_returns_true_when_airport_full(self):
-        pass
+    # def test_is_full_returns_true_when_airport_full(self):
+    #     self.airport = Airport(1, [self.plane])
+    #     self.assertTrue(self.airport.is_full())
 
 
 if __name__ == '__main__':

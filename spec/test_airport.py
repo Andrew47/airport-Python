@@ -10,7 +10,7 @@ from airport import Airport
 class AirportTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.airport = Airport()
+        self.airport = Airport(20,[])
         self.plane = MagicMock()
 
     def test_planes_default_empty(self):
@@ -38,6 +38,16 @@ class AirportTestCase(unittest.TestCase):
     def test_land_plane_stores_plane_in_airport(self):
         self.airport.land_plane(self.plane)
         self.assertEqual(self.airport.planes, [self.plane])
+
+    def test_land_plane_prevented_when_is_full_True(self):
+        self.airport = Airport(1, [self.plane])
+        with self.assertRaisesRegexp(Exception, 'Airport is Full'):
+            self.airport.land_plane(self.plane)
+
+    def test_take_off_plane_causes_plane_to_leave(self):
+        self.airport.land_plane(self.plane)
+        self.airport.take_off_plane(self.plane)
+        self.assertEqual(self.airport.planes, [])
 
 if __name__ == '__main__':
     unittest.main()

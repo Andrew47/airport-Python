@@ -36,7 +36,8 @@ class AirportTestCase(unittest.TestCase):
         self.assertFalse(self.airport.is_full())
 
     def test_land_plane_stores_plane_in_airport(self):
-        self.airport.landplane
+        self.airport.land_plane(self.plane)
+        self.assertEqual(self.airport.planes, [self.plane])
 
 if __name__ == '__main__':
     unittest.main()

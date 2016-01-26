@@ -1,9 +1,5 @@
 import unittest
 
-#Must switch to new environment
-
-#To test everything in one go: python -m unittest discover
-
 from mock import MagicMock
 
 import sys
@@ -31,6 +27,13 @@ class AirportTestCase(unittest.TestCase):
         self.random_capacity = 100
         self.airport = Airport(self.random_capacity)
         self.assertEqual(self.airport.capacity, self.random_capacity)
+
+    def test_isFull_returns_true_when_airport_at_capacity(self):
+        self.airport = Airport(1, [self.plane])
+        self.assertTrue(self.airport.isFull())
+
+    def test_isFull_returns_false_when_airport_not_full(self):
+        self.assertFalse(self.airport.isFull())
 
 if __name__ == '__main__':
     unittest.main()

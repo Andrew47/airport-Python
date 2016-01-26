@@ -30,10 +30,13 @@ class AirportTestCase(unittest.TestCase):
 
     def test_isFull_returns_true_when_airport_at_capacity(self):
         self.airport = Airport(1, [self.plane])
-        self.assertTrue(self.airport.isFull())
+        self.assertTrue(self.airport.is_full())
 
     def test_isFull_returns_false_when_airport_not_full(self):
-        self.assertFalse(self.airport.isFull())
+        self.assertFalse(self.airport.is_full())
+
+    def test_land_plane_stores_plane_in_airport(self):
+        self.airport.landplane
 
 if __name__ == '__main__':
     unittest.main()

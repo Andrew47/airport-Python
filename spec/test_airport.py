@@ -1,9 +1,4 @@
-import unittest
-
-from mock import MagicMock
-
-import sys
-sys.path.append('../lib')
+from helper import *
 
 from airport import Airport
 
@@ -48,6 +43,3 @@ class AirportTestCase(unittest.TestCase):
         self.airport.land_plane(self.plane)
         self.airport.take_off_plane(self.plane)
         self.assertEqual(self.airport.planes, [])
-
-if __name__ == '__main__':
-    unittest.main()

@@ -3,8 +3,6 @@ import unittest
 import sys
 sys.path.append('../lib')
 
-from airport import Airport
-
 class FeatureTestCase(unittest.TestCase):
 
     def setUp(self):

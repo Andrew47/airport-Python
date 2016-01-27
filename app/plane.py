@@ -13,9 +13,10 @@ class Plane(object):
         airport.land_plane(self)
         return self
 
-    def take_off(self, airport):
+    def take_off(self, airport, weather=Weather()):
         if self.is_airborne == True:
             raise Exception('Plane already airborne')
+        self._weather_check(weather)
         self.is_airborne = True
         airport.take_off_plane(self)
         return self

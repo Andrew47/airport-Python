@@ -15,5 +15,5 @@ class FeatureTestCase(unittest.TestCase):
 
     def test_planes_can_take_off(self):
         self.plane.land(self.airport, self.weather)
-        self.plane.take_off(self.airport)
+        self.plane.take_off(self.airport, self.weather)
         self.assertEqual(self.airport.planes, [])

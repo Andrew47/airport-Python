@@ -11,7 +11,7 @@ class PlaneTestCase(unittest.TestCase):
     def test_plane_default_airborne(self):
         self.assertTrue(self.plane.is_airborne)
 
-    def test_not_stormy_land_means_airborne_false(self):
+    def test_not_stormy_land_means_airborne_False(self):
         self.plane.land(self.airport)
         self.assertFalse(self.plane.is_airborne)
 
@@ -22,12 +22,12 @@ class PlaneTestCase(unittest.TestCase):
         self.plane.land(self.airport)
         self.airport.land_plane.assert_called_with(self.plane)
 
-    def test_land_prevented_when_airborne_false(self):
+    def test_land_prevented_when_airborne_False(self):
         self.plane.land(self.airport)
         with self.assertRaisesRegexp(Exception, 'Plane already landed'):
             self.plane.land(self.airport)
 
-    def test_not_stormy_take_off_means_airborne_true(self):
+    def test_not_stormy_take_off_means_airborne_True(self):
         self.plane.land(self.airport)
         self.plane.take_off(self.airport)
         self.assertTrue(self.plane.is_airborne)
@@ -41,4 +41,6 @@ class PlaneTestCase(unittest.TestCase):
         self.plane.land(self.airport)
         self.assertEqual(self.plane.take_off(self.airport), self.plane)
 
-    
+    def test_take_off_prevented_when_airborne_True(self):
+        with self.assertRaisesRegexp(Exception, 'Plane already airborne'):
+            self.plane.take_off(self.airport)

@@ -6,7 +6,7 @@ class FeatureTestCase(unittest.TestCase):
 
     def setUp(self):
         self.plane = Plane()
-        self.airport = Airport()
+        self.airport = Airport(20,[])
 
     def test_planes_can_land(self):
         self.plane.land(self.airport)

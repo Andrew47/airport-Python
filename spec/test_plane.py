@@ -20,3 +20,8 @@ class PlaneTestCase(unittest.TestCase):
     def test_not_stormy_land_calls_land_plane_on_airport(self):
         self.plane.land(self.airport)
         self.airport.land_plane.assert_called_with(self.plane)
+
+    def test_land_prevented_when_airborne_false(self):
+        self.plane.land(self.airport)
+        with self.assertRaisesRegexp(Exception, 'Plane already landed'):
+            self.plane.land(self.airport)
